@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-0-6&562lt2jh+l%gvv4yt18l2o@qlef=hxrq=tvci4k1z6%blc'
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "true    "
 
 ALLOWED_HOSTS = ['scaleup_backend.onrender.com']
 
@@ -59,11 +59,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'scaleupbackend.wsgi.application'
-
+database_url = os.environ.get("DATABASE_URL")
 # Database
 DATABASES = {
     "default": dj_database_url.parse(
-        "postgresql://scaleup_db_user:P4Ocq73Ftqj77R0b51Yrcu6IXeAqZuP7@dpg-d0o11m6uk2gs73fjfo10-a.oregon-postgres.render.com/scaleup_db"
+        database_url
     )
 }
 
