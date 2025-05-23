@@ -142,3 +142,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 CORS_ALLOW_ALL_ORIGINS = True
+ALLOWED_HOSTS = ['your-app-name.onrender.com']
+
