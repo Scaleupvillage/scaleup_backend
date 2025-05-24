@@ -16,5 +16,6 @@ class Registrant(models.Model):
     company = models.CharField(max_length=200)
     profession = models.CharField(max_length=200, default='Others')
 
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
