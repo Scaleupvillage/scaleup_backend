@@ -9,11 +9,11 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-0-6&562lt2jh+l%gvv4yt18l2o@qlef=hxrq=tvci4k1z6%blc'
+# SECRET_KEY = 'django-insecure-0-6&562lt2jh+l%gvv4yt18l2o@qlef=hxrq=tvci4k1z6%blc'
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true    "
 
-ALLOWED_HOSTS = ['scaleup_backend.onrender.com']
+# ALLOWED_HOSTS = ['scaleup_backend.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -93,6 +93,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     'https://dubai.scaleupconclave.com',
 ]
-ALLOWED_HOSTS = ['scaleup_backend.onrender.com', 'dubai.scaleupconclave.com']
+import os
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret')
+# DEBUG = os.environ.get('DEBUG') == 'True'
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 
