@@ -5,10 +5,10 @@ class Registrant(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    country_code = models.CharField(max_length=10)
+    country_code = models.CharField(max_length=3)
 
     mobile_validator = RegexValidator(
-        regex=r'^\d{12}$',
+        regex=r'^\d{10}$',
         message="Mobile number must be exactly 10 digits."
     )
     mobile = models.CharField(max_length=10, unique=True, validators=[mobile_validator])
