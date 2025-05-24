@@ -14,7 +14,7 @@ class Registrant(models.Model):
     mobile = models.CharField(max_length=10, unique=True, validators=[mobile_validator])
 
     company = models.CharField(max_length=200)
-    profession = models.CharField(max_length=200)
+    profession = models.CharField(max_length=200, default='Others')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
