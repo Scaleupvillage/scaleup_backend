@@ -93,5 +93,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     'https://dubai.scaleupconclave.com',
 ]
-ALLOWED_HOSTS = ['scaleup_backend.onrender.com', 'dubai.scaleupconclave.com']
+# ALLOWED_HOSTS = ['scaleup_backend.onrender.com', 'dubai.scaleupconclave.com']
+ALLOWED_HOSTS =['*']
 
