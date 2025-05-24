@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET_KEY = 'django-insecure-0-6&562lt2jh+l%gvv4yt18l2o@qlef=hxrq=tvci4k1z6%blc'
 
-DEBUG = os.environ.get("DEBUG","False").lower() == "true    "
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # ALLOWED_HOSTS = ['scaleup_backend.onrender.com']
 
