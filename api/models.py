@@ -8,7 +8,7 @@ class Registrant(models.Model):
     country_code = models.CharField(max_length=10)
 
     mobile_validator = RegexValidator(
-        regex=r'^\d{10}$',
+        regex=r'^\d{12}$',
         message="Mobile number must be exactly 10 digits."
     )
     mobile = models.CharField(max_length=10, unique=True, validators=[mobile_validator])
