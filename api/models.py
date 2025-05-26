@@ -1,0 +1,22 @@
+from django.db import models
+from django.core.validators import RegexValidator
+
+class Registration(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    mobile = models.CharField(
+        max_length=10,
+        unique=True,
+        validators=[
+            RegexValidator(
+                regex=r'^\d{10}$',
+                message="Mobile number must be exactly 10 digits."
+            )
+        ]
+    )
+    country_code = models.CharField(max_length=5, default='+971')
+    company = models.CharField(max_length=100, blank=True)
+    profession = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.email
