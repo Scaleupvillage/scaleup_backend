@@ -29,7 +29,7 @@ class Registration(models.Model):
     profession = models.CharField(max_length=50)
 
     # New field to store the timestamp sent from frontend
-    submitted_at = models.DateTimeField()
+    submitted_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.email
