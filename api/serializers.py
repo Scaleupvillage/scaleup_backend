@@ -7,8 +7,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate_mobile(self, value):
-        if len(value) != 10 or not value.isdigit():
-            raise serializers.ValidationError("Mobile number must be exactly 10 digits.")
+        if not (7 <= len(value) <= 15) or not value.isdigit():
+            raise serializers.ValidationError("Invalid Number")
         return value
 
     def validate(self, data):

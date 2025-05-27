@@ -6,12 +6,12 @@ class Registration(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     mobile = models.CharField(
-        max_length=10,
+        max_length=15,
         unique=True,
         validators=[
             RegexValidator(
-                regex=r'^\d{10}$',
-                message="Mobile number must be exactly 10 digits."
+                regex=r'^\d{7,15}$',
+                # message="Mobile number must be exactly 10 digits."
             )
         ]
     )
