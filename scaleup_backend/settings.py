@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEBUG = True
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # ALLOWED_HOSTS = ['your-backend.onrender.com', 'dubai.scaleupconclave.com']
 
@@ -154,8 +154,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://dubai.scaleupconclave.com",
     "http://localhost:3000",  # For dev
 ]
-import logging
-logger = logging.getLogger('django.security.DisallowedHost')
-logger.setLevel(logging.DEBUG)
-logger.addHandler(logging.StreamHandler())
+# import logging
+# logger = logging.getLogger('django.security.DisallowedHost')
+# logger.setLevel(logging.DEBUG)
+# logger.addHandler(logging.StreamHandler())
 
