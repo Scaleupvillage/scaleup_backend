@@ -15,16 +15,12 @@ class Registration(models.Model):
             )
         ]
     )
-    COUNTRY_CODE_CHOICES = [
-    ('+971', 'UAE (+971)'),
-    ('+91', 'India (+91)'),
-    ('+1', 'USA (+1)'),
-]
+    
 
     country_code = models.CharField(
        max_length=5,
-       choices=COUNTRY_CODE_CHOICES,
-       default='+971',
+       
+       
         validators=[
             RegexValidator(
                 regex=r'^\+\d{1,4}$',
