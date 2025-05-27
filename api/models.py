@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 class Registration(models.Model):
     name = models.CharField(max_length=100)
@@ -26,6 +27,9 @@ class Registration(models.Model):
     )
     company = models.CharField(max_length=100, blank=True)
     profession = models.CharField(max_length=50)
+
+    # New field to store the timestamp sent from frontend
+    submitted_at = models.DateTimeField()
 
     def __str__(self):
         return self.email
