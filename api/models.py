@@ -14,9 +14,22 @@ class Registration(models.Model):
             )
         ]
     )
-    country_code = models.CharField(max_length=5, default='+971')
+    country_code = models.CharField(
+        max_length=5,
+        default='+971',
+        validators=[
+            RegexValidator(
+                regex=r'^\+\d{1,4}$',
+                message="Country code must be in format '+XXX' (e.g., +971)"
+            )
+        ]
+    )
     company = models.CharField(max_length=100, blank=True)
     profession = models.CharField(max_length=50)
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        db_table = "api_registration"
+        verbose_name_plural = "Registrations"  # Optional but recommended
