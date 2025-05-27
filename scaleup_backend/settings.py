@@ -154,3 +154,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://dubai.scaleupconclave.com",
     "http://localhost:3000",  # For dev
 ]
+import logging
+logger = logging.getLogger('django.security.DisallowedHost')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+
