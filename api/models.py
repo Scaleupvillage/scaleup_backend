@@ -32,4 +32,3 @@ class Registration(models.Model):
 
     class Meta:
         db_table = "api_registration"
-        verbose_name_plural = "Registrations"  # Optional but recommended
