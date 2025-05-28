@@ -1,4 +1,4 @@
-def send_welcome_email(to_email, recipient_name, inviter_name):
+def send_welcome_email(to_email, recipient_name):
     subject = "Welcome to ScaleUp Conclave Dubai – You're In!"
     message = f"""
 Hey {recipient_name},
@@ -12,7 +12,7 @@ Event Details:
 * Venue: Millennium Airport Hotel, Dubai
   Location: https://maps.app.goo.gl/E6MDEZERAijPKV2E8
 
-This invite is brought to you by {inviter_name}.
+This invite is brought to you by ScaleUp Conclave.
 
 See you soon!
 """
