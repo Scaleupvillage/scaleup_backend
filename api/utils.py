@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-
+from django.conf import settings
 
 def send_welcome_email(to_email, recipient_name):
     subject = "Welcome to ScaleUp Conclave Dubai – You're In!"
