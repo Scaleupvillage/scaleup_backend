@@ -10,12 +10,12 @@ class RegistrationView(APIView):
         if serializer.is_valid():
             user = serializer.save()  # Save the user
             # Send invitation email
-            invite_url = f"https://your-frontend.com/signup?email={user.email}"
+            invite_url = f"https://dubai.scaleupconclave.com/signup?email={user.email}"
             send_welcome_email(
-                to_email=user.email,
-                inviter_name="Admin",  # You can replace this with request.user.username if user is logged in
-                invite_url=invite_url
+            to_email=user.email,
+            recipient_name=user.name
             )
+
             return Response({"message": "Registered successfully and invitation email sent!"}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
