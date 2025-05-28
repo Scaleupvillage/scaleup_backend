@@ -2,7 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import RegistrationSerializer
-from .utils import send_welcome_email  # Import your helper function
+from .utils import send_welcome_email
+from django.conf import settings
 
 class RegistrationView(APIView):
     def post(self, request):
