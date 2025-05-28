@@ -165,9 +165,9 @@ CORS_ALLOWED_ORIGINS = [
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'email-smtp.ap-south-1.amazonaws.com'  # Use your region
+EMAIL_HOST = 'email-smtp.ap-south-1.amazonaws.com' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('SES_SMTP_USERNAME')
 EMAIL_HOST_PASSWORD = os.environ.get('SES_SMTP_PASSWORD')
-DEFAULT_FROM_EMAIL = 'scaleupconclave.com'
+DEFAULT_FROM_EMAIL = 'events@scaleupconclave.com'
