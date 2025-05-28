@@ -16,6 +16,7 @@ class RegistrationView(APIView):
             recipient_name=user.name
             )
 
+
             return Response({"message": "Registered successfully and invitation email sent!"}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

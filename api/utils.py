@@ -1,7 +1,4 @@
-from django.core.mail import send_mail
-from django.conf import settings
-
-def send_welcome_email(to_email, inviter_name, recipient_name):
+def send_welcome_email(to_email, recipient_name, inviter_name):
     subject = "Welcome to ScaleUp Conclave Dubai – You're In!"
     message = f"""
 Hey {recipient_name},
@@ -15,11 +12,10 @@ Event Details:
 * Venue: Millennium Airport Hotel, Dubai
   Location: https://maps.app.goo.gl/E6MDEZERAijPKV2E8
 
-Whether you're building from the ground up or scaling to new heights, this conclave offers unmatched opportunities to connect, collaborate, and grow.
+This invite is brought to you by {inviter_name}.
 
 See you soon!
 """
-
     send_mail(
         subject,
         message,
