@@ -1,28 +1,32 @@
-from django.core.mail import send_mail
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
 from django.conf import settings
 
-def send_welcome_email(to_email, recipient_name):
-    subject = "Welcome to ScaleUp Conclave Dubai – You're In!"
-    message = f"""
-Hey {recipient_name},
+def send_welcome_email(to_email, recipient_name, reg_id):
+    configuration = sib_api_v3_sdk.Configuration()
+    configuration.api_key['api-key'] = settings.BREVO_API_KEY
 
-Congratulations!
-You are officially part of ScaleUp Conclave Dubai, the second edition of our premier gathering designed to be a launchpad for startups and a gateway to business networks. This is where ambitious entrepreneurs, industry leaders, and visionaries converge to ignite ideas and accelerate growth.
+    api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
 
-Event Details:
-* Date: June 19, 2025
-* Time: 9:00 AM onwards
-* Venue: Millennium Airport Hotel, Dubai
-  Location: https://maps.app.goo.gl/E6MDEZERAijPKV2E8
+    sender = {"email": settings.DEFAULT_FROM_EMAIL, "name": "ScaleUp Conclave"}
+    to = [{"email": to_email, "name": recipient_name}]
+    template_id = 3  # Replace with your actual template ID in Brevo
 
-This invite is brought to you by ScaleUp Conclave.
+    params = {
+        "recipient_name": recipient_name,
+        "reg_id": reg_id
+    }
 
-See you soon!
-"""
-    send_mail(
-        subject,
-        message,
-        settings.DEFAULT_FROM_EMAIL,
-        [to_email],
-        fail_silently=False,
+    send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
+        to=to,
+        sender=sender,
+        template_id=template_id,
+        params=params,
     )
+
+    try:
+        api_response = api_instance.send_transac_email(send_smtp_email)
+        print(f"Email sent: {api_response}")
+    except ApiException as e:
+        print(f"Error sending email: {e}")
+        # Optionally raise or handle error here
