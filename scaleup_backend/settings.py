@@ -171,4 +171,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('SES_SMTP_USERNAME')
 EMAIL_HOST_PASSWORD = os.environ.get('SES_SMTP_PASSWORD')
 DEFAULT_FROM_EMAIL = 'events@scaleupconclave.com'
-BREVO_API_KEY = 'your-brevo-api-key-here'
+BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
