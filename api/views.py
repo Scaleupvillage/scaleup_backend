@@ -18,7 +18,7 @@ class RegistrationView(APIView):
                     send_welcome_email(
                     to_email=user.email,
                     recipient_name=user.name,
-                    reg_id=user.id  # or whatever your prebooking/registration ID is
+                    reg_id=user.unique_id  # or whatever your prebooking/registration ID is
 )
 
                 )
