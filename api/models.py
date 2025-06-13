@@ -4,7 +4,7 @@ from django.utils import timezone
 import random
 
 class Registration(models.Model):
-    unique_id = models.CharField(max_length=5, unique=True, blank=True, null=True)  # new un ique 5-digit ID
+    unique_id = models.CharField(max_length=5, unique=True, blank=True, null=True) 
 
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
